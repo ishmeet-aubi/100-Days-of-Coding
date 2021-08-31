@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+  <title>Digital Clock</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Orbitron'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Aldrich'>
+  <link rel="stylesheet" href="style.css">
+<style>
+
+</style>
+</head>
+
+<body translate="no" >
+
+<h1 style="font-family:Cambria; font-size:50px; color:#ffffff; text-align:center; top: 30px;">Digital Clock Wall</h1> 
+<div id="Clock-Display" class="clock" onload="showTime()"></div>
+<script id="rendered-js" >
+function showTime() {
+  var date = new Date();
+  var h = date.getHours(); 
+  var m = date.getMinutes(); 
+  var s = date.getSeconds(); 
+  var session = "AM";
+
+  if (h == 0) {
+    h = 12;
+  }
+
+  if (h > 12) {
+    h = h - 12;
+    session = "PM";
+  }
+
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+
+  var time = h + ":" + m + ":" + s + " " + session;
+  document.getElementById("Clock-Display").innerText = time;
+  document.getElementById("Clock-Display").textContent = time;
+
+  setTimeout(showTime, 1000);
+
+}
+
+showTime();
+
+    </script>
+</body>
+</html>
